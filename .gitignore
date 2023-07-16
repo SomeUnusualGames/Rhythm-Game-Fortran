@@ -1,0 +1,9 @@
+test/
+maps/
+assets/music/
+assets/fonts/
+*.mod
+*.dll
+*.o
+game*
+*.exe
