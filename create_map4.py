@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 map_output = 'maps/Sad_Scene_map.txt'
-audio_path = 'assets/music/Sad_Scene.wav'
+audio_path = 'assets/music/Sad_Scene.mp3'
 y, sr = librosa.load(audio_path)
 
 onset_env = librosa.onset.onset_strength(y=y, sr=sr)

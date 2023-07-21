@@ -25,7 +25,7 @@ program RhythmGame
   !call load_map("maps/test2_map.txt" // char(0), "assets/music/test2.wav" // char(0))
   call load_map( &
     "maps/Sad_Scene_map.txt" // char(0), &
-    "assets/music/Sad_Scene.wav" // char(0) &
+    "assets/music/Sad_Scene.mp3" // char(0) &
   )
 
   do while (.not. window_should_close())
