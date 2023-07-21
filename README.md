@@ -22,3 +22,7 @@ Windows: `gfortran -fno-range-check -o URG main.f90 -B. -lraylib -lopengl32 -lgd
 Linux: `gfortran -fno-range-check -o URG main.f90 -B. -lraylib -lGL -lm -pthread -ldl`
 
 or simply run `build.bat` (Windows) or `bash build.sh` (Linux)
+
+## Attribution
+
+"Sad Scene" song by [Destructo20](https://freesound.org/people/Destructo20/sounds/667648/) - CC0
