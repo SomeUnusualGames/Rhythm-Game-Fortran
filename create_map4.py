@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
 
-# Load the audio file
-audio_path = 'assets/music/test.wav'
+map_output = 'maps/Sad_Scene_map.txt'
+audio_path = 'assets/music/Sad_Scene.wav'
 y, sr = librosa.load(audio_path)
 
 onset_env = librosa.onset.onset_strength(y=y, sr=sr)
@@ -24,6 +24,8 @@ for onset_frame in onsets_frames:
   peak_frequency = frequencies[peak_index]
   onsets_frequency.append(peak_frequency)
 
+'''
+# Uncomment to see the detected onsets
 plt.figure(figsize=(10, 6))
 librosa.display.waveshow(y, sr=sr, alpha=0.5)
 plt.vlines(onsets_time, ymin=-1, ymax=1, color='r', linestyle='--', label='Onsets')
@@ -32,11 +34,12 @@ plt.ylabel('Amplitude')
 plt.title('Audio Waveform with Detected Onsets')
 plt.legend()
 plt.show()
-
+'''
 
 kmeans = KMeans(n_clusters=4)
 clusters = kmeans.fit_predict(np.array(onsets_frequency).reshape(-1, 1))
 
-# TODO: Save to file...
-for i in range(len(clusters)):
-  print('{} {}'.format(onsets_time[i], clusters[i]))
+data_output = '\n'.join([f'{time} {cluster}' for time, cluster in zip(onsets_time, clusters)])
+data_output += '\n0 -1'
+with open(map_output, 'w') as f:
+  f.write(data_output)
